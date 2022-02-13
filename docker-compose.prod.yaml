@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  web:
+    build: ./services/api
+    ports:
+      - 8000:8000
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.fastapi.rule=Host(`ssl.ahmedbesbes.com`)"
+      - "traefik.http.routers.fastapi.tls=true"
+      - "traefik.http.routers.fastapi.tls.certresolver=letsencrypt"
+
+  traefik:
+    image: traefik:v2.2
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "$PWD/services/traefik/traefik.prod.toml:/etc/traefik/traefik.toml"
