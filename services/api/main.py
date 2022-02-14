@@ -1,9 +1,10 @@
 from copy import deepcopy
-from fastapi import FastAPI
+from fastapi import FastAPI, File, UploadFile, Form
 from pydantic import BaseModel
 from typing import List
 from enum import Enum
 import spacy
+# import torch
 
 
 def load_models():
@@ -92,3 +93,13 @@ def extract_entities(user_request: UserRequestIn):
 @app.get("/")
 def hello():
     return {"message": "hello Mirakl !!"}
+
+
+class Properties(BaseModel):
+    language: str = None
+    author: str = None
+
+
+@app.post("/uploadfile/", status_code=201)
+async def create_upload_file(language: str = Form(...),author: str = Form(...),file: UploadFile = File(...)):
+    return {"filename": file.filename, 'properties': Properties(language=language,author=author)}
