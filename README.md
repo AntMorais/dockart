@@ -1,2 +1,2 @@
 # dockart
-Image Classification model in a container with PyTorch, Docker, PostgreSQL, FastAPI
+Containerized Image Classification model with PyTorch, Docker, PostgreSQL, FastAPI
