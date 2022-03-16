@@ -3,3 +3,6 @@ wheel
 pydantic
 fastapi
 uvicorn
+gunicorn
+spacy
+spacytextblob

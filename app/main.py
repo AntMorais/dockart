@@ -1,9 +1,15 @@
-import uvicorn
+
 from fastapi import FastAPI
 from models.model import SentimentModel, SentimentQueryModel
 
 app = FastAPI()
 model = SentimentModel()
+
+
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
+
 @app.post('/predict')
 def predict(data: SentimentQueryModel):
     data = data.dict()
@@ -11,5 +17,3 @@ def predict(data: SentimentQueryModel):
     return { 'polarity': polarity,
                 'subjectivity': subjectivity
     }
-if __name__ == '__main__':
-    uvicorn.run(app, host='0.0.0.0', port=8000)
