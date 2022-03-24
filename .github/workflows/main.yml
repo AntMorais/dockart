@@ -14,6 +14,8 @@ jobs:
     steps:
       - name: Build and push Docker images
         uses: docker/build-push-action@v2.10.0
+        with:
+          file: ./services/api/Dockerfile
 
       # - name: executing ssh commands using ssh key
       #   uses: appleboy/ssh-action@master
