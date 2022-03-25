@@ -1,6 +1,6 @@
-## Deploy an inference API on AWS (EC2) using FastAPI Docker and Github Actions
+# Work in progress
 
-### Work in progress
+## Deploy an inference API on AWS (EC2) using FastAPI Docker and Github Actions
 ### References
 - [medium blog post](https://towardsdatascience.com/how-to-deploy-a-machine-learning-model-with-fastapi-docker-and-github-actions-13374cbd638a)
 
