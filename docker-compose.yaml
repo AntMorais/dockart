@@ -8,6 +8,12 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.fastapi.rule=Host(`fastapi.localhost`)"
+  pgsql-database:
+    build: ./services/database
+    ports:
+      - 5432:5432
+    volumes:
+      - ./services/database/postgres-data:/var/lib/postgresql/data
 
   # traefik:
   #   image: traefik:v2.2
