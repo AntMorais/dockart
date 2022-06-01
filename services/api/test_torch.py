@@ -8,7 +8,7 @@ from PIL import Image, ImageFile
 from pydantic import BaseModel
 from typing import List
 from enum import Enum
-
+import data_functions
 
 
 transform = nn.Sequential(

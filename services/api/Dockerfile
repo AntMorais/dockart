@@ -1,6 +1,6 @@
 FROM python:3.7
 
-RUN pip install fastapi uvicorn spacy
+RUN pip install fastapi uvicorn spacy pydantic torch torchvision pandas numpy matplotlib
 
 COPY . /api/api
 
